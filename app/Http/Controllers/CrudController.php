@@ -25,7 +25,7 @@ class CrudController extends Controller
             'meta_keyvord' => ['required'],
         ]);
 
-        $respons = CrudModel::create([
+        CrudModel::create([
             'name' => $request->name,
             'title' => $request->title,
             'description' => $request->description,
@@ -34,7 +34,9 @@ class CrudController extends Controller
             'meta_keyvord' => $request->meta_keyvord,
         ]);
 
-        return $respons;
+        return [
+            'message' => 'Crud create successfully'
+        ];
 
     }
 
@@ -66,6 +68,17 @@ class CrudController extends Controller
 
     }
 
-    
+    public function delete($id) {
+
+        $delete = CrudModel::findOrFail($id);
+        $delete->delete();
+
+        return [
+            'message' => 'crud delete successfully'
+        ];
+
+    }
+
+
 
 }

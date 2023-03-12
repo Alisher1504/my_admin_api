@@ -30,6 +30,7 @@ Route::get('crud', [CrudController::class, 'index']);
 Route::middleware(['auth:sanctum'])->group(function () {
     Route::post('create', [CrudController::class, 'create']);
     Route::put('update/{id}', [CrudController::class, 'update']);
+    Route::delete('delete/{id}', [CrudController::class, 'delete']);
     Route::get('logout', [AuthController::class, 'logout']);
 });
 
