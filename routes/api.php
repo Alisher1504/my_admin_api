@@ -25,3 +25,4 @@ Route::get('crud', [CrudController::class, 'index']);
 Route::post('create', [CrudController::class, 'create']);
 
 Route::post('register', [AuthController::class, 'register']);
+Route::post('login', [AuthController::class, 'login']);
