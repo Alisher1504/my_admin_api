@@ -21,8 +21,14 @@ use App\Http\Controllers\CrudController;
 // });
 
 
-Route::get('crud', [CrudController::class, 'index']);
-Route::post('create', [CrudController::class, 'create']);
+
 
 Route::post('register', [AuthController::class, 'register']);
 Route::post('login', [AuthController::class, 'login']);
+
+
+Route::middleware(['auth:sanctum'])->group(function () {
+    Route::get('crud', [CrudController::class, 'index']);
+    Route::post('create', [CrudController::class, 'create']);
+    Route::get('logout', [AuthController::class, 'logout']);
+});
