@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CrudController;
 
 /*
@@ -21,6 +22,6 @@ use App\Http\Controllers\CrudController;
 
 
 Route::get('crud', [CrudController::class, 'index']);
-
 Route::post('create', [CrudController::class, 'create']);
 
+Route::post('register', [AuthController::class, 'register']);
