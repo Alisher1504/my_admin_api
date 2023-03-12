@@ -8,9 +8,11 @@ use Illuminate\Http\Request;
 class CrudController extends Controller
 {
     
+    
     public function index() {
         return CrudModel::all();
     }
+
 
     public function create(Request $request) {
 

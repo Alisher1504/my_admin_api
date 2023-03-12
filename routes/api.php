@@ -19,6 +19,8 @@ use App\Http\Controllers\CrudController;
 //     return $request->user();
 // });
 
+
 Route::get('crud', [CrudController::class, 'index']);
+
 Route::post('create', [CrudController::class, 'create']);
 
