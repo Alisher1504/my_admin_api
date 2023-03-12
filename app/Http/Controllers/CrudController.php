@@ -38,4 +38,34 @@ class CrudController extends Controller
 
     }
 
+    public function update(Request $request, $id) {
+
+        $crud = CrudModel::findOrFail($id);
+
+        $res = $request->validate([
+            'name' => ['required'],
+            'title' => ['required'],
+            'description' => ['required'],
+            'meta_title' => ['required'],
+            'meta_description' => ['required'],
+            'meta_keyvord' => ['required'],
+        ]);
+
+        $crud->update([
+            'name' => $request->name,
+            'title' => $request->title,
+            'description' => $request->description,
+            'meta_title' => $request->meta_title,
+            'meta_description' => $request->meta_description,
+            'meta_keyvord' => $request->meta_keyvord,
+        ]);
+
+        return [
+            'message' => 'Update crud successfully'
+        ];
+
+    }
+
+    
+
 }

@@ -25,10 +25,11 @@ use App\Http\Controllers\CrudController;
 
 Route::post('register', [AuthController::class, 'register']);
 Route::post('login', [AuthController::class, 'login']);
-
+Route::get('crud', [CrudController::class, 'index']);
 
 Route::middleware(['auth:sanctum'])->group(function () {
-    Route::get('crud', [CrudController::class, 'index']);
     Route::post('create', [CrudController::class, 'create']);
+    Route::put('update/{id}', [CrudController::class, 'update']);
     Route::get('logout', [AuthController::class, 'logout']);
 });
+
