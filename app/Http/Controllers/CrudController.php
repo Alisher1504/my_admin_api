@@ -79,6 +79,18 @@ class CrudController extends Controller
 
     }
 
+    public function show($id) {
+
+        if($show = CrudModel::findOrFail($id)){
+            return $show;
+        }
+        
+        return [
+            'message' => 'crud not found'
+        ];
+
+    }
+
 
 
 }
